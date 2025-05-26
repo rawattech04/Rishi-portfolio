@@ -25,9 +25,9 @@ export const HeroContent = () => {
   const [showContactModal, setShowContactModal] = useState(false);
   const [showReminder, setShowReminder] = useState(false);
   const reminderTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const lastActivationTime = useRef<number>(-30000); // Start with a negative time to avoid issues on initial load
-  const lastDeactivationTime = useRef<number>(-30000); // Start with a negative time to avoid issues on initial load
-  const debounceTime = 3000; // 3 seconds debounce time
+  const lastActivationTime = useRef<number>(-30000); 
+  const lastDeactivationTime = useRef<number>(-30000); 
+  const debounceTime = 3000; 
 
   // Track mouse position for dynamic cursor glow
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -76,21 +76,18 @@ export const HeroContent = () => {
 
   // Handle reminder when user hovers out
   const handleHoverOut = () => {
-    // Get the assistant instance
+    
     const assistant = AIAssistant.getInstance();
     
-    // Check if we've been active long enough to show the reminder
     const currentTime = Date.now();
     if (currentTime - lastActivationTime.current < debounceTime) {
       console.log('Skipping hover-out reminder - activation was too brief');
       return;
     }
     
-    // If the assistant was active, show a reminder about how to stop
     if (assistantActive && !showReminder) {
       setShowReminder(true);
       
-      // Create a small floating reminder
       if (reminderTimeoutRef.current) {
         clearTimeout(reminderTimeoutRef.current);
       }
@@ -105,21 +102,17 @@ export const HeroContent = () => {
     }
   };
 
-  // Update functions to handle AI Assistant activation
   const handleMouseEnter = () => {
     if (!hasTouchScreen) {
       setIsHovered(true);
-      
-      // Only activate the assistant if it's not already active
+
       if (!assistantActive) {
         const currentTime = Date.now();
-        // Check if we've recently deactivated - prevents rapid toggling
         if (currentTime - lastDeactivationTime.current < debounceTime) {
           console.log('Debouncing activation - too soon after deactivation');
           return;
         }
-        
-        // Small delay before activating assistant to let the visual effect kick in
+
         const timer = setTimeout(() => {
           setAssistantActive(true);
           lastActivationTime.current = Date.now();
@@ -132,14 +125,9 @@ export const HeroContent = () => {
   const handleMouseLeave = () => {
     if (!hasTouchScreen) {
       setIsHovered(false);
-      
-      // Set a small delay before deactivating to prevent flickering
-      // if the user briefly moves the cursor out of the area
       setTimeout(() => {
         if (!isHovered) {
           const currentTime = Date.now();
-          // Only show reminder and deactivate if we've been active for more than debounce time
-          // This prevents reminder from showing on rapid hover in/out
           if (assistantActive) {
             if (currentTime - lastActivationTime.current > debounceTime) {
               handleHoverOut();
@@ -151,13 +139,10 @@ export const HeroContent = () => {
     }
   };
 
-  // Handle toggle for touch devices
   const handleTouchStart = () => {
     setIsHovered(prev => !prev);
     
-    // For touch devices, activate/deactivate the assistant when tapping
     if (!assistantActive) {
-      // Activate assistant after a brief delay to allow the arc reactor to visually activate first
       const timer = setTimeout(() => {
         setAssistantActive(true);
       }, 1000);
@@ -167,15 +152,12 @@ export const HeroContent = () => {
     }
   };
 
-  // Battery level monitoring
   useEffect(() => {
     const updateBatteryStatus = (battery: any) => {
-      // Update battery level with one decimal place
       const level = (battery.level * 100).toFixed(1);
       setBatteryLevel(level);
       setIsCharging(battery.charging);
       
-      // Listen for battery status changes
       battery.addEventListener('levelchange', () => {
         setBatteryLevel((battery.level * 100).toFixed(1));
       });
@@ -235,7 +217,7 @@ export const HeroContent = () => {
           className="flex flex-col gap-6 mt-6 text-4xl sm:text-5xl md:text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
         >
           <span>
-            hey, I'm 
+          {`hey, I'm `} 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
               {" "}Rishi 
             </span>{" "}
@@ -357,7 +339,7 @@ export const HeroContent = () => {
             <div className="absolute top-10 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none animate-fade-in">
               <div className="px-3 py-2 rounded-lg bg-black/40 backdrop-blur-sm border border-blue-500/30 max-w-[250px]">
                 <p className="text-xs text-cyan-100 font-mono text-center">
-                  If you'd like me to power down, just say 'stop' or another shutdown command.
+                  {`If you'd like me to power down, just say 'stop' or another shutdown command.`}
                 </p>
               </div>
             </div>

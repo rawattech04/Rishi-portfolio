@@ -18,7 +18,6 @@ const PROJECT_COLORS = [
 
 const EXTENDED_PROJECTS = [
   ...PROJECTS,
- 
 ];
 
 export const Projects = () => {
