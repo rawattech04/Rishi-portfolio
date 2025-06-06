@@ -3,9 +3,9 @@ import type { NextRequest } from 'next/server';
 
 // List of allowed origins
 const allowedOrigins = [
-  'https://rishirawat.com',  // Replace with your production domain
-  'https://www.rishirawat.com', // Include www subdomain if needed
-  'http://localhost:3000', // For local development
+  'http://localhost:3000', // Local development
+  'https://rishi-portfolio-busa-git-main-rishi-rawats-projects.vercel.app', // Vercel preview deployment
+  'https://rishi-portfolio.vercel.app', // Main Vercel deployment
 ];
 
 export function middleware(request: NextRequest) {
@@ -23,6 +23,8 @@ export function middleware(request: NextRequest) {
       'Access-Control-Allow-Origin': isAllowedOrigin ? origin : allowedOrigins[0],
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Date, X-Api-Version',
+      // Add additional headers that might be needed
+      'Access-Control-Max-Age': '86400', // 24 hours in seconds
     };
 
     // Handle preflight OPTIONS request
