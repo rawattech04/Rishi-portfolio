@@ -4,7 +4,7 @@ import { FOOTER_DATA } from "@/constants";
 
 export const Footer = () => {
   return (
-    <div className="w-full h-full bg-transparent text-gray-200 shadow-lg p-[15px] mt-32">
+    <div className="w-full h-full bg-transparent text-gray-200 shadow-lg p-[15px] mt:4  relative">
       <div className="w-full flex flex-col items-center justify-center m-auto">
         <div className="w-full h-full flex flex-row items-center justify-around flex-wrap">
           {FOOTER_DATA.map((column) => (
@@ -19,16 +19,15 @@ export const Footer = () => {
                   href={link}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="flex flex-row items-center my-[15px]"
+                  className="flex flex-row items-center my-[15px] hover:text-purple-500 transition-colors relative z-[1]"
                 >
-                  {Icon && <Icon />}
-                  <span className="text-[15px] ml-[6px]">{name}</span>
+                  {Icon && <Icon className="mr-2" />}
+                  <span className="text-[15px]">{name}</span>
                 </Link>
               ))}
             </div>
           ))}
         </div>
-
         <div className="mb-[20px] text-[15px] text-center">
           &copy; Rishi Rawat {new Date().getFullYear()} All rights reserved.
         </div>

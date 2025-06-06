@@ -92,17 +92,17 @@ export const SOCIALS = [
   {
     name: "Instagram",
     icon: RxInstagramLogo,
-    link: "https://instagram.com",
-  },
-  {
-    name: "Facebook",
-    icon: FaFacebook,
-    link: "https://facebook.com",
+    link: "https://instagram.com/rishitech04",
   },
   {
     name: "Twitter",
     icon: RxTwitterLogo,
-    link: "https://twitter.com",
+    link: "https://x.com/Rishi_Rawat_04",
+  },
+  {
+    name: "LinkedIn",
+    icon: RxLinkedinLogo,
+    link: "https://www.linkedin.com/in/rishi-rawat-a6632a251",
   },
 ] as const;
 
@@ -259,20 +259,20 @@ export const OTHER_SKILL = [
 
 export const PROJECTS = [
   {
-    title: "Grocery Store Website",
-    description:
-      "An eCommerce grocery platform built with the MERN stack, offering real-time product browsing, cart management, and order tracking. Enhanced with Tailwind CSS and MUI for a modern UI, GraphQL for data querying, and CI/CD workflows for seamless deployment.",
-    image: "/projects/project1.png",
-    link: "https://grocery04.netlify.app/",
-    technologies: ["MongoDB", "Express", "React", "Node.js", "Tailwind CSS", "MUI", "GraphQL", "CI/CD"]
-  },
-  {
     title: "Tour & Travel Website",
     description:
       "A fully responsive tour and travel booking platform developed with Next.js and Redux for state management. It includes dynamic tour listings, filtering, and a secure booking system powered by Node.js and MongoDB. Real-time charts provide insights using Chart.js.",
     image: "/projects/project2.png",
     link: "https://tour-travels-39t9.vercel.app/",
     technologies: ["Next.js", "React", "Redux", "Node.js", "MongoDB", "Chart.js", "Prisma"]
+  },
+  {
+    title: "Grocery Store Website",
+    description:
+      "An eCommerce grocery platform built with the MERN stack, offering real-time product browsing, cart management, and order tracking. Enhanced with Tailwind CSS and MUI for a modern UI, GraphQL for data querying, and CI/CD workflows for seamless deployment.",
+    image: "/projects/project1.png",
+    link: "https://grocery04.netlify.app/",
+    technologies: ["MongoDB", "Express", "React", "Node.js", "Tailwind CSS", "MUI", "GraphQL", "CI/CD"]
   },
   {
     title: "Full Dashboard To Manage Your Business",
@@ -287,60 +287,50 @@ export const PROJECTS = [
 
 export const FOOTER_DATA = [
   {
-    title: "Community",
-    data: [
-      {
-        name: "YouTube",
-        icon: FaYoutube,
-        link: "https://youtube.com",
-      },
-      {
-        name: "GitHub",
-        icon: RxGithubLogo,
-        link: "https://github.com",
-      },
-      {
-        name: "Discord",
-        icon: RxDiscordLogo,
-        link: "https://discord.com",
-      },
-    ],
-  },
-  {
     title: "Social Media",
     data: [
       {
         name: "Instagram",
         icon: RxInstagramLogo,
-        link: "https://instagram.com",
+        link: "https://instagram.com/rishitech04",
       },
       {
         name: "Twitter",
         icon: RxTwitterLogo,
-        link: "https://twitter.com",
+        link: "https://x.com/Rishi_Rawat_04",
       },
       {
-        name: "Linkedin",
+        name: "LinkedIn",
         icon: RxLinkedinLogo,
-        link: "https://linkedin.com",
+        link: "https://www.linkedin.com/in/rishi-rawat-a6632a251",
       },
     ],
   },
   {
-    title: "About",
+    title: "Professional",
     data: [
       {
-        name: "Become Sponsor",
-        icon: null,
-        link: "https://youtube.com",
+        name: "GitHub",
+        icon: RxGithubLogo,
+        link: "https://github.com/rishirawat04",
       },
       {
-        name: "Learning about me",
+        name: "Upwork",
         icon: null,
-        link: "https://example.com",
+        link: "https://www.upwork.com/freelancers/~014d03d2c1e31483c9",
       },
       {
-        name: "Contact Me",
+        name: "Freelancer",
+        icon: null,
+        link: "https://www.freelancer.in/u/rishir61",
+      },
+    ],
+  },
+  {
+    title: "Contact",
+    data: [
+      {
+        name: "Email",
         icon: null,
         link: "mailto:contact@example.com",
       },
@@ -350,19 +340,136 @@ export const FOOTER_DATA = [
 
 export const NAV_LINKS = [
   {
-    title: "About me",
-    link: "#about-me",
-  },
-  {
-    title: "Skills",
-    link: "#skills",
+    title: "Home",
+    link: "/",
   },
   {
     title: "Projects",
-    link: "#projects",
+    link: "/projects",
+  },
+  {
+    title: "Blogs",
+    link: "/blog",
+  },
+  {
+    title: "Contact",
+    link: "/contact",
   },
 ] as const;
 
 export const LINKS = {
   sourceCode: "https://github.com/rishirawat04",
 };
+
+export interface BlogSection {
+  title: string;
+  content: string;
+  image?: string;
+}
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  content: string;
+  summary: string;
+  image: string;
+  date: string;
+  sections?: BlogSection[];
+}
+
+export const BLOGS: BlogPost[] = [
+  {
+    id: "1",
+    title: "The Future of Web Development",
+    summary: "Exploring the latest trends and technologies shaping the future of web development",
+    content: "Web development is constantly evolving, with new technologies and methodologies emerging at a rapid pace. From AI-powered development tools to revolutionary frameworks, the landscape of web development is undergoing a significant transformation.",
+    image:  "/projects/project3.png",
+    date: "2024-03-15",
+    sections: [
+      {
+        title: "The Rise of AI in Web Development",
+        content: "Artificial Intelligence is revolutionizing how we build and maintain web applications. From code generation to automated testing, AI tools are becoming an integral part of the modern developer's toolkit. This shift is not just about automation; it's about enhancing developer productivity and enabling more innovative solutions.",
+        image: "/projects/project2.png"
+      },
+      {
+        title: "New Frontend Frameworks",
+        content: "Modern frontend frameworks are becoming more powerful and developer-friendly. With the advent of meta-frameworks and improved build tools, developers can now create more sophisticated applications with less code. The focus is shifting towards better performance, developer experience, and end-user satisfaction."
+      }
+    ]
+  },
+  {
+    id: "2",
+    title: "Mastering React Performance",
+    summary: "Learn the best practices for optimizing React applications",
+    content: "Performance optimization is crucial for delivering a smooth user experience in React applications. Understanding how React works under the hood and implementing proper optimization techniques can significantly improve your application's performance.",
+    image: "/projects/project2.png",
+    date: "2024-03-10",
+    sections: [
+      {
+        title: "Component Optimization",
+        content: "Understanding how to optimize React components is essential for building performant applications. This includes proper use of hooks, memoization techniques, and efficient state management. By following these best practices, you can ensure your components render efficiently and maintain smooth user interactions."
+      }
+    ]
+  },
+  {
+    id: "3",
+    title: "Building Scalable Backend Systems",
+    summary: "A comprehensive guide to building scalable backend architectures",
+    content: "Scalability is a critical aspect of modern web applications. As your user base grows, your backend system needs to handle increased load efficiently while maintaining performance and reliability.",
+    image: "/projects/project1.png",
+    date: "2024-03-05",
+    sections: [
+      {
+        title: "Microservices Architecture",
+        content: "Exploring the benefits and challenges of microservices architecture. While microservices offer great flexibility and scalability, they also introduce complexity in terms of deployment, monitoring, and maintenance. Understanding when and how to implement microservices is crucial for building successful scalable systems."
+      }
+    ]
+  },
+  {
+    id: "4",
+    title: "The Future of Web Development",
+    summary: "Exploring the latest trends and technologies shaping the future of web development",
+    content: "Web development is constantly evolving, with new technologies and methodologies emerging at a rapid pace. From AI-powered development tools to revolutionary frameworks, the landscape of web development is undergoing a significant transformation.",
+    image:  "/projects/project3.png",
+    date: "2024-03-15",
+    sections: [
+      {
+        title: "The Rise of AI in Web Development",
+        content: "Artificial Intelligence is revolutionizing how we build and maintain web applications. From code generation to automated testing, AI tools are becoming an integral part of the modern developer's toolkit. This shift is not just about automation; it's about enhancing developer productivity and enabling more innovative solutions.",
+        image: "/projects/project2.png"
+      },
+      {
+        title: "New Frontend Frameworks",
+        content: "Modern frontend frameworks are becoming more powerful and developer-friendly. With the advent of meta-frameworks and improved build tools, developers can now create more sophisticated applications with less code. The focus is shifting towards better performance, developer experience, and end-user satisfaction."
+      }
+    ]
+  },
+  {
+    id: "5",
+    title: "Mastering React Performance",
+    summary: "Learn the best practices for optimizing React applications",
+    content: "Performance optimization is crucial for delivering a smooth user experience in React applications. Understanding how React works under the hood and implementing proper optimization techniques can significantly improve your application's performance.",
+    image: "/projects/project2.png",
+    date: "2024-03-10",
+    sections: [
+      {
+        title: "Component Optimization",
+        content: "Understanding how to optimize React components is essential for building performant applications. This includes proper use of hooks, memoization techniques, and efficient state management. By following these best practices, you can ensure your components render efficiently and maintain smooth user interactions."
+      }
+    ]
+  },
+  {
+    id: "6",
+    title: "Building Scalable Backend Systems",
+    summary: "A comprehensive guide to building scalable backend architectures",
+    content: "Scalability is a critical aspect of modern web applications. As your user base grows, your backend system needs to handle increased load efficiently while maintaining performance and reliability.",
+    image: "/projects/project1.png",
+    date: "2024-03-05",
+    sections: [
+      {
+        title: "Microservices Architecture",
+        content: "Exploring the benefits and challenges of microservices architecture. While microservices offer great flexibility and scalability, they also introduce complexity in terms of deployment, monitoring, and maintenance. Understanding when and how to implement microservices is crucial for building successful scalable systems."
+      }
+    ]
+  }
+];

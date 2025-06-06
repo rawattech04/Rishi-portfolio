@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 
 export const siteConfig: Metadata = {
-  title: "Rishi Rawat | StellarForge",
+  title: "Rishi Rawat | Full Stack Developer",
   description: "Welcome to my full stack Next.js 14 space portfolio.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   keywords: [
     "reactjs",
     "nextjs",

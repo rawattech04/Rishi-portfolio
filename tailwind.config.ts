@@ -1,4 +1,5 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
+import { PluginAPI } from 'tailwindcss/types/config';
 
 const config: Config = {
   content: [
@@ -10,8 +11,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       animation: {
         'spin-slow': 'spin 6s linear infinite',
@@ -64,6 +64,21 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
-}
-export default config
+
+  plugins: [
+    // 👇 Custom plugin to hide scrollbars
+    function ({ addUtilities }: PluginAPI) {
+      addUtilities({
+        '.no-scrollbar': {
+          '-ms-overflow-style': 'none', /* IE and Edge */
+          'scrollbar-width': 'none', /* Firefox */
+          '&::-webkit-scrollbar': {
+            display: 'none', /* Chrome, Safari and Opera */
+          },
+        },
+      });
+    },
+  ],
+};
+
+export default config;

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 type ProjectDetailProps = {
   title: string;
@@ -50,7 +51,7 @@ export const ProjectDetail = ({
 
   return (
     <motion.div
-      className="flex flex-col justify-center w-full bg-black/30 backdrop-blur-sm rounded-xl p-8 relative overflow-hidden border border-[#2A2A2A]/50"
+      className="flex flex-col justify-between w-full bg-black/30 backdrop-blur-sm rounded-xl p-8 relative overflow-hidden border border-[#2A2A2A]/50"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -69,60 +70,64 @@ export const ProjectDetail = ({
         }}
       />
 
-      <motion.h3
-        className={`uppercase text-sm font-semibold tracking-wider mb-2 ${textColorClass}`}
-        variants={itemVariants}
-      >
-        Project Overview
-      </motion.h3>
+      <div>
+        <motion.h3
+          className={`uppercase text-sm font-semibold tracking-wider mb-2 ${textColorClass}`}
+          variants={itemVariants}
+        >
+          Project Overview
+        </motion.h3>
 
-      <motion.div 
-        className="flex flex-wrap gap-2 mb-6"
-        variants={itemVariants}
-      >
-        {technologies.map((tech, index) => (
-          <motion.span
-            key={index}
-            className={`text-white px-3 py-1 rounded-md text-xs ${bgColorLightClass} border border-${themeColor.split('-')[1]}-500/30`}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ 
-              duration: 0.2,
-              delay: index * 0.03
-            }}
-          >
-            {tech}
-          </motion.span>
-        ))}
-      </motion.div>
+        <motion.div 
+          className="flex flex-wrap gap-2 mb-6"
+          variants={itemVariants}
+        >
+          {technologies.map((tech, index) => (
+            <motion.span
+              key={index}
+              className={`text-white px-3 py-1 rounded-md text-xs ${bgColorLightClass} border border-${themeColor.split('-')[1]}-500/30`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ 
+                duration: 0.2,
+                delay: index * 0.03
+              }}
+            >
+              {tech}
+            </motion.span>
+          ))}
+        </motion.div>
+        
+        <motion.p 
+          className="text-gray-300 text-base leading-relaxed mb-6"
+          variants={itemVariants}
+        >
+          {description}
+        </motion.p>
+      </div>
       
-      <motion.p 
-        className="text-gray-300 text-sm leading-relaxed mb-6"
-        variants={itemVariants}
-      >
-        {description}
-      </motion.p>
-      
       <motion.div 
-        className="flex space-x-4"
+        className="flex items-center space-x-4"
         variants={itemVariants}
       >
+        <a 
+          href={projectLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center justify-center px-4 py-2 text-sm font-medium ${bgColorClass} text-white rounded-md hover:opacity-90 transition-colors`}
+        >
+          Visit Website
+          <FiExternalLink className="ml-2" size={16} />
+        </a>
+        
         <a 
           href="https://github.com/rishirawat04?tab=repositories" 
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium bg-[#1A1A1A] text-white rounded-md hover:bg-[#2A2A2A] transition-colors"
         >
-          Source code
-        </a>
-        
-        <a 
-          href={projectLink} 
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`inline-flex items-center justify-center px-4 py-2 text-sm font-medium ${bgColorClass} text-white rounded-md hover:opacity-90 transition-colors`}
-        >
-          Visit Website
+          Source Code
+          <FiGithub className="ml-2" size={16} />
         </a>
       </motion.div>
     </motion.div>
