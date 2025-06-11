@@ -3,9 +3,10 @@ import type { NextRequest } from 'next/server';
 
 // List of allowed origins
 const allowedOrigins = [
-  'http://localhost:3000', // Local development
-  'https://rishi-portfolio-busa-git-main-rishi-rawats-projects.vercel.app', // Vercel preview deployment
-  'https://rishi-portfolio.vercel.app', // Main Vercel deployment
+  'http://localhost:3000', 
+  'https://rishi-portfolio-busa-git-main-rishi-rawats-projects.vercel.app', 
+  'https://rishi-portfolio-busa.vercel.app',
+  'https://rishi-portfolio.vercel.app', 
 ];
 
 export function middleware(request: NextRequest) {
