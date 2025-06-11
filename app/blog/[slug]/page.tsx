@@ -13,7 +13,7 @@ import BlogImage from '@/components/blog/BlogImage';
 
 async function getBlogData(slug: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blogs/${slug}`, {
-    next: { revalidate: 60 }, // Revalidate every minute
+    next: { revalidate: 60 }, 
   });
 
   if (!res.ok) {
